@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kustomisasi Fajar Cafe & Bistro (Visual Customizer)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="assets/js/config.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#090100",
+            secondary: "#97472e",
+            "primary-container": "#2c1810",
+            "surface-container": "#f0ede9",
+            "surface-container-low": "#f6f3ee",
+            "surface-container-high": "#ebe8e3",
+            "surface-container-lowest": "#ffffff",
+            surface: "#fcf9f4",
+            "on-surface": "#1c1c19",
+            "on-surface-variant": "#504440",
+            "outline-variant": "#d3c3be"
+          },
+          fontFamily: {
+            headline: ["Newsreader", "serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased min-h-screen pb-16">
+
+  <!-- Header -->
+  <header class="bg-primary-container text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="assets/images/fajar-cafe-logo.png" alt="Logo" class="h-9 w-auto brightness-200">
+        <div>
+          <h1 class="font-headline text-xl font-bold leading-tight">Panel Kustomisasi Website</h1>
+          <p class="text-xs text-amber-200">Ubah Teks, Kontak, Harga Menu, &amp; Gambar Asset Tanpa Merusak Kode</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-semibold flex items-center gap-1 transition-colors">
+          <span class="material-symbols-outlined text-[16px]">visibility</span>
+          Lihat Beranda
+        </a>
+        <a href="fajar_cafe_semua_menu_pemesanan/code.html" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-semibold flex items-center gap-1 transition-colors">
+          <span class="material-symbols-outlined text-[16px]">restaurant_menu</span>
+          Semua Menu
+        </a>
+        <a href="fajar_cafe_checkout_bayar_langsung/code.html" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-semibold flex items-center gap-1 transition-colors">
+          <span class="material-symbols-outlined text-[16px]">shopping_bag</span>
+          Checkout
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="fixed top-20 right-4 z-50 hidden max-w-sm px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 text-sm font-semibold transition-all"></div>
+
+  <!-- Content Container -->
+  <main class="max-w-6xl mx-auto px-4 pt-8">
+
+    <!-- Top Action Bar -->
+    <div class="bg-surface-container-lowest p-5 rounded-2xl shadow-sm border border-outline-variant/30 mb-8 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center">
+          <span class="material-symbols-outlined text-[24px]">tune</span>
+        </div>
+        <div>
+          <h2 class="font-bold text-base text-primary">Status Konfigurasi</h2>
+          <p id="config-status-text" class="text-xs text-on-surface-variant">Memuat konfigurasi aktif...</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center gap-2.5">
+        <button onclick="resetConfig()" type="button" class="px-4 py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold text-xs flex items-center gap-1.5 transition-colors">
+          <span class="material-symbols-outlined text-[18px]">restart_alt</span>
+          Reset ke Awal
+        </button>
+        <button onclick="exportConfigFile()" type="button" class="px-4 py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold text-xs flex items-center gap-1.5 transition-colors">
+          <span class="material-symbols-outlined text-[18px]">code</span>
+          Salin Kode config.js
+        </button>
+        <button onclick="saveAllChanges()" type="button" class="px-5 py-2.5 rounded-xl bg-secondary hover:bg-secondary/90 text-white font-bold text-xs flex items-center gap-1.5 shadow-md hover:shadow-lg transition-all">
+          <span class="material-symbols-outlined text-[18px]">save</span>
+          Simpan &amp; Terapkan ke Website
+        </button>
+      </div>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="flex border-b border-outline-variant/30 mb-6 gap-2">
+      <button onclick="switchTab('tab-info')" id="btn-tab-info" class="tab-btn px-4 py-2.5 font-bold text-sm border-b-2 border-secondary text-secondary flex items-center gap-2 transition-all">
+        <span class="material-symbols-outlined text-[18px]">storefront</span>
+        1. Informasi &amp; Kontak Kafe
+      </button>
+      <button onclick="switchTab('tab-gambar')" id="btn-tab-gambar" class="tab-btn px-4 py-2.5 font-semibold text-sm border-b-2 border-transparent text-on-surface-variant hover:text-primary flex items-center gap-2 transition-all">
+        <span class="material-symbols-outlined text-[18px]">image</span>
+        2. Kustom Gambar Asset
+      </button>
+      <button onclick="switchTab('tab-menu')" id="btn-tab-menu" class="tab-btn px-4 py-2.5 font-semibold text-sm border-b-2 border-transparent text-on-surface-variant hover:text-primary flex items-center gap-2 transition-all">
+        <span class="material-symbols-outlined text-[18px]">local_cafe</span>
+        3. Daftar Menu &amp; Harga (32 Menu)
+      </button>
+    </div>
+
+    <!-- TAB 1: INFORMASI KAFE -->
+    <div id="tab-info" class="tab-pane space-y-6">
+      <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/30">
+        <h3 class="font-headline text-lg font-bold text-primary mb-1">Identitas &amp; Jam Buka</h3>
+        <p class="text-xs text-on-surface-variant mb-5">Informasi ini otomatis tampil di Header, Banner, Footer, dan lembar Tagihan/QRIS.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-on-surface mb-1">Nama Kafe (Pendek)</label>
+            <input type="text" id="inp-namaKafe" class="w-full px-3.5 py-2.5 rounded-xl border border-outline-variant/50 bg-surface-container-low text-sm focus:outline-none focus:border-secondary">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-on-surface mb-1">Nama Lengkap Kafe</label>
+            <input type="text" id="inp-namaLengkap" class="w-full px-3.5 py-2.5 rounded-xl border border-outline-variant/50 bg-surface-container-low text-sm focus:outline-none focus:border-secondary">
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-xs font-bold text-on-surface mb-1">Slogan / Tagline Kafe</label>
+            <input type="text" id="inp-slogan" class="w-full px-3.5 py-2.5 rounded-xl border border-outline-variant/50 bg-surface-container-low text-sm focus:outline-none focus:border-secondary">
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-xs font-bold text-on-surface mb-1">Deskripsi Singkat</label>
+            <textarea id="inp-deskripsi" rows="2" class="w-full px-3.5 py-2.5 rounded-xl border border-outline-variant/50 bg-surface-container-low text-sm focus:outline-none focus:border-secondary"></textarea>
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-xs font-bold text-on-surface mb-1">Alamat Lengkap</label>
+            <input type="text" id="inp-alamat" class="w-full px-3.5 py-2.5 rounded-xl border border-outline-variant/50 bg-surface-container-low text-sm focus:outline-none focus:border-secondary">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-on-surface mb-1">Hari Operasional</label>
+            <input type="text" id="inp-jamBukaHari" class="w-full px-3.5 py-2.5 rounded-xl border border-outline-variant/50 bg-surface-container-low text-sm focus:outline-none focus:border-secondary">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-on-surface mb-1">Pukul Operasional</label>
+            <input type="text" id="inp-jamBukaPukul" class="w-full px-3.5 py-2.5 rounded-xl border border-outline-variant/50 bg-surface-container-low text-sm focus:outline-none focus:border-secondary">
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/30">
+        <h3 class="font-headline text-lg font-bold text-primary mb-1">WhatsApp &amp; Kontak Resmi Kafe</h3>
+        <p class="text-xs text-on-surface-variant mb-5">Nomor ini yang digunakan untuk pengiriman Bill pesanan WhatsApp dan notifikasi QRIS.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-on-surface mb-1">Nomor WhatsApp Resmi</label>
+            <input type="text" id="inp-whatsapp" class="w-full px-3.5 py-2.5 rounded-xl border border-outline-variant/50 bg-surface-container-low text-sm font-mono font-bold text-secondary focus:outline-none focus:border-secondary">
+            <span class="text-[11px] text-on-surface-variant">Contoh: 082338903403</span>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-on-surface mb-1">Tampilan Nomor di Website</label>
+            <input type="text" id="inp-whatsappDisplay" class="w-full px-3.5 py-2.5 rounded-xl border border-outline-variant/50 bg-surface-container-low text-sm focus:outline-none focus:border-secondary">
+            <span class="text-[11px] text-on-surface-variant">Contoh: +62 823-3890-3403</span>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-on-surface mb-1">Akun Instagram</label>
+            <input type="text" id="inp-instagram" class="w-full px-3.5 py-2.5 rounded-xl border border-outline-variant/50 bg-surface-container-low text-sm focus:outline-none focus:border-secondary">
+            <span class="text-[11px] text-on-surface-variant">Contoh: @fajarcafe.jkt</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: GAMBAR ASSET -->
+    <div id="tab-gambar" class="tab-pane hidden space-y-6">
+      <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/30">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h3 class="font-headline text-lg font-bold text-primary">Gambar Utama &amp; Suasana Website</h3>
+            <p class="text-xs text-on-surface-variant">Semua gambar tersimpan lokal di folder <code class="px-1.5 py-0.5 rounded bg-surface-container text-secondary font-mono">assets/images/</code>.</p>
+          </div>
+          <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">100% Asset Lokal</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- Logo -->
+          <div class="p-4 rounded-xl border border-outline-variant/40 bg-surface-container-low flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-primary block mb-1">Logo Resmi Kafe</span>
+              <div class="h-28 rounded-lg bg-primary-container flex items-center justify-center p-3 mb-3">
+                <img id="prev-logo" src="assets/images/fajar-cafe-logo.png" class="max-h-16 w-auto object-contain brightness-200">
+              </div>
+            </div>
+            <div>
+              <label class="text-[11px] font-semibold text-on-surface-variant block mb-1">Path File Asset:</label>
+              <input type="text" id="inp-img-logo" oninput="previewImg(this, 'prev-logo')" class="w-full px-3 py-1.5 rounded-lg border border-outline-variant/50 bg-white text-xs font-mono">
+            </div>
+          </div>
+
+          <!-- Hero Barista -->
+          <div class="p-4 rounded-xl border border-outline-variant/40 bg-surface-container-low flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-primary block mb-1">Hero Banner (Barista)</span>
+              <div class="h-28 rounded-lg overflow-hidden mb-3 bg-surface-container">
+                <img id="prev-heroBarista" src="assets/images/hero-barista-pourover.jpg" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <div>
+              <label class="text-[11px] font-semibold text-on-surface-variant block mb-1">Path File Asset:</label>
+              <input type="text" id="inp-img-heroBarista" oninput="previewImg(this, 'prev-heroBarista')" class="w-full px-3 py-1.5 rounded-lg border border-outline-variant/50 bg-white text-xs font-mono">
+            </div>
+          </div>
+
+          <!-- Favorit Kopi Susu -->
+          <div class="p-4 rounded-xl border border-outline-variant/40 bg-surface-container-low flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-primary block mb-1">Favorit 1: Kopi Susu</span>
+              <div class="h-28 rounded-lg overflow-hidden mb-3 bg-surface-container">
+                <img id="prev-favoritKopiSusu" src="assets/images/favorit-kopi-susu.jpg" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <div>
+              <label class="text-[11px] font-semibold text-on-surface-variant block mb-1">Path File Asset:</label>
+              <input type="text" id="inp-img-favoritKopiSusu" oninput="previewImg(this, 'prev-favoritKopiSusu')" class="w-full px-3 py-1.5 rounded-lg border border-outline-variant/50 bg-white text-xs font-mono">
+            </div>
+          </div>
+
+          <!-- Favorit Croissant -->
+          <div class="p-4 rounded-xl border border-outline-variant/40 bg-surface-container-low flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-primary block mb-1">Favorit 2: Croissant Almond</span>
+              <div class="h-28 rounded-lg overflow-hidden mb-3 bg-surface-container">
+                <img id="prev-favoritCroissant" src="assets/images/favorit-croissant-almond.jpg" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <div>
+              <label class="text-[11px] font-semibold text-on-surface-variant block mb-1">Path File Asset:</label>
+              <input type="text" id="inp-img-favoritCroissant" oninput="previewImg(this, 'prev-favoritCroissant')" class="w-full px-3 py-1.5 rounded-lg border border-outline-variant/50 bg-white text-xs font-mono">
+            </div>
+          </div>
+
+          <!-- Favorit Nasi Goreng -->
+          <div class="p-4 rounded-xl border border-outline-variant/40 bg-surface-container-low flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-primary block mb-1">Favorit 3: Nasi Goreng</span>
+              <div class="h-28 rounded-lg overflow-hidden mb-3 bg-surface-container">
+                <img id="prev-favoritNasiGoreng" src="assets/images/favorit-nasi-goreng.jpg" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <div>
+              <label class="text-[11px] font-semibold text-on-surface-variant block mb-1">Path File Asset:</label>
+              <input type="text" id="inp-img-favoritNasiGoreng" oninput="previewImg(this, 'prev-favoritNasiGoreng')" class="w-full px-3 py-1.5 rounded-lg border border-outline-variant/50 bg-white text-xs font-mono">
+            </div>
+          </div>
+
+          <!-- Galeri Interior -->
+          <div class="p-4 rounded-xl border border-outline-variant/40 bg-surface-container-low flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-primary block mb-1">Galeri: Interior Kafe</span>
+              <div class="h-28 rounded-lg overflow-hidden mb-3 bg-surface-container">
+                <img id="prev-galeriInterior" src="assets/images/story-cafe-interior.jpg" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <div>
+              <label class="text-[11px] font-semibold text-on-surface-variant block mb-1">Path File Asset:</label>
+              <input type="text" id="inp-img-galeriInterior" oninput="previewImg(this, 'prev-galeriInterior')" class="w-full px-3 py-1.5 rounded-lg border border-outline-variant/50 bg-white text-xs font-mono">
+            </div>
+          </div>
+
+          <!-- Galeri Mesin Espresso -->
+          <div class="p-4 rounded-xl border border-outline-variant/40 bg-surface-container-low flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-primary block mb-1">Galeri: Mesin Espresso</span>
+              <div class="h-28 rounded-lg overflow-hidden mb-3 bg-surface-container">
+                <img id="prev-galeriMesinEspresso" src="assets/images/story-espresso-machine.jpg" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <div>
+              <label class="text-[11px] font-semibold text-on-surface-variant block mb-1">Path File Asset:</label>
+              <input type="text" id="inp-img-galeriMesinEspresso" oninput="previewImg(this, 'prev-galeriMesinEspresso')" class="w-full px-3 py-1.5 rounded-lg border border-outline-variant/50 bg-white text-xs font-mono">
+            </div>
+          </div>
+
+          <!-- Galeri Sudut Santai -->
+          <div class="p-4 rounded-xl border border-outline-variant/40 bg-surface-container-low flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-primary block mb-1">Galeri: Sudut Santai</span>
+              <div class="h-28 rounded-lg overflow-hidden mb-3 bg-surface-container">
+                <img id="prev-galeriSudutSantai" src="assets/images/story-cozy-corner.jpg" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <div>
+              <label class="text-[11px] font-semibold text-on-surface-variant block mb-1">Path File Asset:</label>
+              <input type="text" id="inp-img-galeriSudutSantai" oninput="previewImg(this, 'prev-galeriSudutSantai')" class="w-full px-3 py-1.5 rounded-lg border border-outline-variant/50 bg-white text-xs font-mono">
+            </div>
+          </div>
+
+          <!-- Galeri Teras Outdoor -->
+          <div class="p-4 rounded-xl border border-outline-variant/40 bg-surface-container-low flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-primary block mb-1">Galeri: Teras Outdoor</span>
+              <div class="h-28 rounded-lg overflow-hidden mb-3 bg-surface-container">
+                <img id="prev-galeriTerasOutdoor" src="assets/images/story-outdoor-terrace.jpg" class="w-full h-full object-cover">
+              </div>
+            </div>
+            <div>
+              <label class="text-[11px] font-semibold text-on-surface-variant block mb-1">Path File Asset:</label>
+              <input type="text" id="inp-img-galeriTerasOutdoor" oninput="previewImg(this, 'prev-galeriTerasOutdoor')" class="w-full px-3 py-1.5 rounded-lg border border-outline-variant/50 bg-white text-xs font-mono">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: DAFTAR MENU & HARGA -->
+    <div id="tab-menu" class="tab-pane hidden space-y-6">
+      <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/30">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-5">
+          <div>
+            <h3 class="font-headline text-lg font-bold text-primary">Katalog Menu &amp; Harga Produk</h3>
+            <p class="text-xs text-on-surface-variant">Ubah harga atau gambar menu di sini, otomatis teraplikasi ke halaman Menu dan Checkout.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-on-surface-variant">Filter Kategori:</span>
+            <select id="filter-category" onchange="renderMenuEditor(this.value)" class="px-3 py-1.5 rounded-lg border border-outline-variant/50 text-xs font-semibold bg-white">
+              <option value="all">Semua Kategori (32 Menu)</option>
+              <option value="Signature Coffee">Signature Coffee</option>
+              <option value="Manual Brew & Specialty">Manual Brew &amp; Specialty</option>
+              <option value="Tea & Non-Coffee">Tea &amp; Non-Coffee</option>
+              <option value="Mains & Rice Bowl">Mains &amp; Rice Bowl</option>
+              <option value="Pastry & Desserts">Pastry &amp; Desserts</option>
+              <option value="Artisan Snacks">Artisan Snacks</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="menu-items-editor-container" class="space-y-3 max-h-[600px] overflow-y-auto pr-2">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // Inisialisasi data dari window.CONFIG
+    let activeConfig = JSON.parse(JSON.stringify(window.CONFIG || {}));
+
+    // Buka tab
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('border-secondary', 'text-secondary', 'font-bold');
+        btn.classList.add('border-transparent', 'text-on-surface-variant', 'font-semibold');
+      });
+
+      const target = document.getElementById(tabId);
+      if (target) target.classList.remove('hidden');
+
+      const btn = document.getElementById('btn-' + tabId);
+      if (btn) {
+        btn.classList.remove('border-transparent', 'text-on-surface-variant', 'font-semibold');
+        btn.classList.add('border-secondary', 'text-secondary', 'font-bold');
+      }
+    }
+
+    // Tampilkan Toast
+    function showToast(message, isSuccess = true) {
+      const toast = document.getElementById('toast');
+      toast.className = `fixed top-20 right-4 z-50 px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 text-sm font-semibold transition-all ${
+        isSuccess ? 'bg-emerald-800 text-white' : 'bg-red-800 text-white'
+      }`;
+      toast.innerHTML = `<span class="material-symbols-outlined text-[20px]">${isSuccess ? 'check_circle' : 'error'}</span><span>${message}</span>`;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3500);
+    }
+
+    // Pratinjau gambar input langsung
+    function previewImg(inputEl, prevId) {
+      const prev = document.getElementById(prevId);
+      if (prev && inputEl.value) {
+        prev.src = inputEl.value;
+      }
+    }
+
+    // Muat data info ke form
+    function populateInfoTab() {
+      const info = activeConfig.info || {};
+      const fields = [
+        'namaKafe', 'namaLengkap', 'slogan', 'deskripsi', 
+        'alamat', 'jamBukaHari', 'jamBukaPukul',
+        'whatsapp', 'whatsappDisplay', 'instagram'
+      ];
+      fields.forEach(f => {
+        const el = document.getElementById('inp-' + f);
+        if (el && info[f] !== undefined) {
+          el.value = info[f];
+        }
+      });
+    }
+
+    // Muat data gambar ke form
+    function populateGambarTab() {
+      const gambar = activeConfig.gambar || {};
+      const imgKeys = [
+        'logo', 'heroBarista', 'favoritKopiSusu', 'favoritCroissant', 
+        'favoritNasiGoreng', 'galeriInterior', 'galeriMesinEspresso', 
+        'galeriSudutSantai', 'galeriTerasOutdoor'
+      ];
+      imgKeys.forEach(k => {
+        const inp = document.getElementById('inp-img-' + k);
+        const prev = document.getElementById('prev-' + k);
+        if (inp && gambar[k]) {
+          inp.value = gambar[k];
+        }
+        if (prev && gambar[k]) {
+          prev.src = gambar[k];
+        }
+      });
+    }
+
+    // Render daftar editor menu
+    function renderMenuEditor(category = 'all') {
+      const container = document.getElementById('menu-items-editor-container');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const items = activeConfig.menu || [];
+      const filtered = category === 'all' ? items : items.filter(it => it.kategori === category);
+
+      filtered.forEach((item, index) => {
+        const originalIndex = items.findIndex(it => it.nama === item.nama);
+        const card = document.createElement('div');
+        card.className = "p-3.5 rounded-xl border border-outline-variant/30 bg-surface-container-low flex flex-col md:flex-row items-start md:items-center justify-between gap-3";
+        
+        card.innerHTML = `
+          <div class="flex items-center gap-3 min-w-[240px]">
+            <img src="${item.gambar}" alt="${item.nama}" class="w-12 h-12 rounded-lg object-cover bg-surface-container shrink-0 border border-outline-variant/30">
+            <div>
+              <span class="text-xs font-bold text-primary block leading-tight">${item.nama}</span>
+              <span class="text-[10px] px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium mt-1 inline-block">${item.kategori}</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-2.5 w-full md:w-auto">
+            <div class="flex items-center gap-1.5">
+              <label class="text-[11px] font-bold text-on-surface-variant">Harga (Rp):</label>
+              <input type="number" step="1000" value="${item.harga}" onchange="updateItemPrice(${originalIndex}, this.value)" class="w-28 px-2.5 py-1.5 rounded-lg border border-outline-variant/50 bg-white text-xs font-mono font-bold text-primary focus:outline-none focus:border-secondary">
+            </div>
+            <div class="flex items-center gap-1.5 flex-1 md:w-64">
+              <label class="text-[11px] font-bold text-on-surface-variant shrink-0">Asset Gambar:</label>
+              <input type="text" value="${item.gambar}" onchange="updateItemImg(${originalIndex}, this.value)" class="w-full px-2.5 py-1.5 rounded-lg border border-outline-variant/50 bg-white text-xs font-mono focus:outline-none focus:border-secondary">
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function updateItemPrice(index, val) {
+      if (activeConfig.menu && activeConfig.menu[index]) {
+        activeConfig.menu[index].harga = parseInt(val) || 0;
+      }
+    }
+
+    function updateItemImg(index, val) {
+      if (activeConfig.menu && activeConfig.menu[index]) {
+        activeConfig.menu[index].gambar = val;
+      }
+    }
+
+    // Kumpulkan seluruh data form
+    function gatherAllFormData() {
+      // 1. Info
+      const infoFields = [
+        'namaKafe', 'namaLengkap', 'slogan', 'deskripsi', 
+        'alamat', 'jamBukaHari', 'jamBukaPukul',
+        'whatsapp', 'whatsappDisplay', 'instagram'
+      ];
+      activeConfig.info = activeConfig.info || {};
+      infoFields.forEach(f => {
+        const el = document.getElementById('inp-' + f);
+        if (el) activeConfig.info[f] = el.value.trim();
+      });
+
+      // 2. Gambar
+      const imgKeys = [
+        'logo', 'heroBarista', 'favoritKopiSusu', 'favoritCroissant', 
+        'favoritNasiGoreng', 'galeriInterior', 'galeriMesinEspresso', 
+        'galeriSudutSantai', 'galeriTerasOutdoor'
+      ];
+      activeConfig.gambar = activeConfig.gambar || {};
+      imgKeys.forEach(k => {
+        const inp = document.getElementById('inp-img-' + k);
+        if (inp) activeConfig.gambar[k] = inp.value.trim();
+      });
+
+      return activeConfig;
+    }
+
+    // Simpan ke localStorage
+    function saveAllChanges() {
+      const data = gatherAllFormData();
+      if (window.CONFIG && typeof window.CONFIG.saveCustomOverrides === 'function') {
+        const ok = window.CONFIG.saveCustomOverrides(data);
+        if (ok) {
+          showToast('Kustomisasi berhasil disimpan dan langsung aktif di seluruh website!');
+          updateStatusText();
+        } else {
+          showToast('Gagal menyimpan ke penyimpanan lokal browser', false);
+        }
+      } else {
+        localStorage.setItem('fajar_custom_config', JSON.stringify(data));
+        showToast('Kustomisasi berhasil disimpan!');
+        updateStatusText();
+      }
+    }
+
+    // Reset ke konfigurasi awal
+    function resetConfig() {
+      if (confirm('Apakah Anda yakin ingin mereset seluruh kustomisasi kembali ke pengaturan awal Fajar Cafe?')) {
+        if (window.CONFIG && typeof window.CONFIG.resetToDefault === 'function') {
+          window.CONFIG.resetToDefault();
+        } else {
+          localStorage.removeItem('fajar_custom_config');
+        }
+        location.reload();
+      }
+    }
+
+    // Salin kode config.js ke clipboard
+    function exportConfigFile() {
+      const data = gatherAllFormData();
+      const codeOutput = `/**
+ * FAJAR CAFE & BISTRO - KODE CONFIG TERKUSTOMISASI
+ * Disalin dari Panel Visual Customizer
+ */
+window.FAJAR_CUSTOM_CONFIG = ${JSON.stringify(data, null, 2)};
+`;
+      navigator.clipboard.writeText(codeOutput).then(() => {
+        showToast('Kode config.js berhasil disalin ke Clipboard!');
+      }).catch(() => {
+        prompt('Salin kode config berikut:', codeOutput);
+      });
+    }
+
+    function updateStatusText() {
+      const statusEl = document.getElementById('config-status-text');
+      const hasCustom = localStorage.getItem('fajar_custom_config');
+      if (statusEl) {
+        if (hasCustom) {
+          statusEl.innerHTML = `<span class="text-amber-700 font-semibold">Aktif: Mode Kustomisasi Pengguna</span> (Tersimpan di browser)`;
+        } else {
+          statusEl.innerHTML = `<span class="text-emerald-700 font-semibold">Aktif: Pengaturan Asli Default</span> (Belum ada perubahan)`;
+        }
+      }
+    }
+
+    // Inisialisasi saat halaman dimuat
+    document.addEventListener('DOMContentLoaded', () => {
+      populateInfoTab();
+      populateGambarTab();
+      renderMenuEditor('all');
+      updateStatusText();
+    });
+  </script>
+</body>
+</html>
