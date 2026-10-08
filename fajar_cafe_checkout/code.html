@@ -1,0 +1,1063 @@
+<!DOCTYPE html><html lang="id" class="scroll-smooth"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><title>Selesaikan Pesanan & Pembayaran QRIS - Fajar Cafe</title><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="../config.js"></script><script src="../assets/js/qrcode.min.js"></script><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-tint":"#74584e","inverse-surface":"#31302d","tertiary-fixed":"#d3e8d5","primary":"#090100","on-tertiary":"#ffffff","surface-container-lowest":"#ffffff","surface-container":"#f0ede9","inverse-primary":"#e3bfb2","on-secondary-container":"#772f18","surface":"#fcf9f4","on-secondary-fixed":"#3a0a00","on-primary-fixed":"#2a170f","on-tertiary-container":"#768a7a","surface-bright":"#fcf9f4","on-background":"#1c1c19","primary-container":"#2c1810","surface-container-high":"#ebe8e3","on-surface":"#1c1c19","primary-fixed-dim":"#e3bfb2","on-primary-fixed-variant":"#5a4137","tertiary":"#000401","primary-fixed":"#ffdbce","error-container":"#ffdad6","tertiary-fixed-dim":"#b7ccb9","on-primary-container":"#9e7e73","on-secondary-fixed-variant":"#793019","on-primary":"#ffffff","tertiary-container":"#0f2115","secondary-fixed":"#ffdbd0","surface-container-highest":"#e5e2dd","outline":"#827470","surface-container-low":"#f6f3ee","secondary-fixed-dim":"#ffb59f","secondary-container":"#fe997a","background":"#fcf9f4","on-error":"#ffffff","on-surface-variant":"#504440","surface-dim":"#dcdad5","inverse-on-surface":"#f3f0eb","on-secondary":"#ffffff","on-tertiary-fixed":"#0e1f13","on-tertiary-fixed-variant":"#394b3d","outline-variant":"#d3c3be","secondary":"#97472e","surface-variant":"#e5e2dd","error":"#ba1a1a","on-error-container":"#93000a"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-xl":"2.5rem",margin:"2rem","margin-mobile":"1rem",gutter:"1.5rem","gutter-mobile":"1rem","space-xs":"0.25rem","space-sm":"0.5rem","space-md":"1rem","space-lg":"1.5rem"},fontFamily:{"headline-sm":["Newsreader"],"headline-lg":["Newsreader"],"body-md":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-md":["Newsreader"],"label-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Newsreader"],display:["Newsreader"],"display-mobile":["Newsreader"],"body-lg":["Plus Jakarta Sans"]},fontSize:{"headline-sm":["1.25rem",{lineHeight:"1.75rem",fontWeight:"600"}],"headline-lg":["2.25rem",{lineHeight:"2.75rem",letterSpacing:"-0.01em",fontWeight:"500"}],"body-md":["1rem",{lineHeight:"1.5rem",fontWeight:"400"}],"label-sm":["0.75rem",{lineHeight:"1rem",letterSpacing:"0.04em",fontWeight:"600"}],"label-lg":["1rem",{lineHeight:"1.5rem",letterSpacing:"0.01em",fontWeight:"600"}],"headline-md":["1.5rem",{lineHeight:"2rem",fontWeight:"500"}],"label-md":["0.875rem",{lineHeight:"1.25rem",letterSpacing:"0.02em",fontWeight:"600"}],"body-sm":["0.875rem",{lineHeight:"1.25rem",fontWeight:"400"}],"headline-lg-mobile":["1.75rem",{lineHeight:"2.25rem",fontWeight:"500"}],display:["3.5rem",{lineHeight:"4rem",letterSpacing:"-0.02em",fontWeight:"500"}],"display-mobile":["2.25rem",{lineHeight:"2.75rem",letterSpacing:"-0.01em",fontWeight:"500"}],"body-lg":["1.125rem",{lineHeight:"1.75rem",fontWeight:"400"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(44,24,16,0.06)]"><div class="h-20 max-w-7xl mx-auto px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg shrink-0"><a class="flex items-center gap-space-sm group" data-path="beranda" href="../index.html"><img alt="Fajar Cafe Logo" data-config-img="logo" class="h-8 w-auto object-contain" src="../assets/images/fajar-cafe-logo.png"><span class="font-headline-md text-headline-md text-primary tracking-tight">Fajar Cafe</span></a></div><nav class="hidden xl:flex items-center gap-gutter" data-active-classes="text-secondary font-semibold"><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="beranda" href="../index.html">Beranda</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="3-menu-favorit" href="../index.html#menu-favorit">3 Menu Favorit</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="semua-menu" href="../fajar_cafe_semua_menu_pemesanan/code.html">Semua Menu</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="reservasi-meja" href="../fajar_cafe_reservasi_meja/code.html">Reservasi Meja</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="tentang-kami" href="../index.html#tentang-kami">Tentang Kami</a></nav><div class="flex items-center gap-space-md shrink-0"><div class="hidden md:flex items-center p-space-xs bg-surface-container rounded-full" id="header-order-toggle"><button id="header-btn-dine-in" onclick="setOrderType('dine-in')" class="px-space-md py-space-xs rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm shadow-[0_1px_4px_rgba(44,24,16,0.08)] font-semibold transition-all" type="button">Dine-in</button><button id="header-btn-takeaway" onclick="setOrderType('takeaway')" class="px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors" type="button">Takeaway</button></div><a class="hidden lg:flex items-center gap-space-sm px-space-md py-space-xs rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors" data-path="keranjang-pesanan" href="code.html"><span class="material-symbols-outlined text-secondary text-[20px]">shopping_bag</span><div class="flex flex-col text-left leading-tight"><span class="font-label-sm text-label-sm text-on-surface font-semibold">0 Item</span><span class="font-body-sm text-body-sm text-on-surface-variant">Rp 0</span></div></a><a class="px-space-lg py-space-sm rounded-lg bg-primary-container text-on-primary font-label-md text-label-md hover:bg-secondary transition-colors" data-path="checkout" href="code.html">Pesan Sekarang</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><button id="mobile-menu-toggle-btn" class="xl:hidden flex items-center justify-center w-9 h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" onclick="toggleMobileNav()" type="button" aria-label="Toggle Menu"><span class="material-symbols-outlined text-[20px]" id="mobile-menu-icon">menu</span></button></div></div><div id="mobile-nav-backdrop" class="fixed inset-0 bg-black/40 z-40 hidden xl:hidden" onclick="closeMobileNav()"></div>
+<div id="mobile-nav-menu" class="hidden xl:hidden bg-surface/98 backdrop-blur-xl border-t border-outline-variant/40 px-margin py-4 flex flex-col gap-2 shadow-lg relative z-50">
+  <div class="flex items-center justify-between pb-2 border-b border-outline-variant/30">
+    <span class="font-headline-sm text-headline-sm text-primary">Menu Navigasi</span>
+    <button type="button" onclick="closeMobileNav()" class="p-1 rounded-lg text-on-surface-variant hover:text-primary transition-colors" aria-label="Tutup Menu">
+      <span class="material-symbols-outlined text-[20px]">close</span>
+    </button>
+  </div>
+  <a class="py-2 text-on-surface font-semibold hover:text-secondary transition-colors" onclick="closeMobileNav()" href="../index.html">Beranda</a>
+  <a class="py-2 text-on-surface hover:text-secondary transition-colors" onclick="closeMobileNav()" href="../index.html#menu-favorit">3 Menu Favorit</a>
+  <a class="py-2 text-on-surface hover:text-secondary transition-colors" onclick="closeMobileNav()" href="../fajar_cafe_semua_menu_pemesanan/code.html">Semua Menu</a>
+  <a class="py-2 text-on-surface hover:text-secondary transition-colors" onclick="closeMobileNav()" href="../fajar_cafe_reservasi_meja/code.html">Reservasi Meja</a>
+  <a class="py-2 text-on-surface hover:text-secondary transition-colors" onclick="closeMobileNav()" href="../index.html#tentang-kami">Tentang Kami</a>
+  <div class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low my-1">
+    <span class="text-xs font-semibold text-on-surface">Pilihan Layanan:</span>
+    <div class="flex items-center p-0.5 bg-surface-container rounded-full">
+      <button id="mobile-btn-dine-in" onclick="setOrderType('dine-in'); closeMobileNav();" class="px-3 py-1 rounded-full bg-primary-container text-on-primary text-xs font-semibold transition-all" type="button">Dine-in</button>
+      <button id="mobile-btn-takeaway" onclick="setOrderType('takeaway'); closeMobileNav();" class="px-3 py-1 rounded-full text-on-surface-variant text-xs font-semibold transition-all" type="button">Takeaway</button>
+    </div>
+  </div>
+  <div class="h-px bg-outline-variant/30 my-1"></div>
+  <a class="py-2.5 px-4 rounded-lg bg-primary-container text-on-primary font-semibold text-center hover:bg-secondary transition-colors" onclick="closeMobileNav()" href="code.html">Pesan Sekarang / Checkout</a>
+</div>
+</header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<div class="relative w-full overflow-hidden bg-surface-container-low py-space-xl">
+<div class="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-secondary/5 blur-3xl pointer-events-none"></div>
+<div class="absolute left-10 bottom-0 w-80 h-80 rounded-full bg-tertiary-fixed/30 blur-2xl pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-margin relative z-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="flex flex-col">
+<a href="../fajar_cafe_semua_menu_pemesanan/code.html" class="inline-flex items-center gap-1.5 text-secondary hover:text-primary transition-colors font-label-sm text-label-sm font-semibold mb-2"><span class="material-symbols-outlined text-[18px]">arrow_back</span> Kembali ke Katalog Menu</a>
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="px-space-sm py-0.5 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm tracking-wider uppercase">Sistem Kasir Mandiri</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">• Kode Order: #FJR-9842</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Selesaikan Pembayaran &amp; Pesanan</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-space-xs">
+            Konfirmasi pesanan santap Anda dan selesaikan transaksi nirsentuh secara instan dengan verifikasi otomatis.
+          </p>
+</div>
+<div class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg bg-surface-container text-on-surface shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[22px]">verified_user</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold leading-tight">Enkripsi 256-Bit</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-tight">QRIS Standar Bank Indonesia</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-sm text-label-sm">1</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Opsi Pemesanan</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Wajib Dipilih</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm" id="order-type-container">
+<button class="p-space-md rounded-lg bg-primary-container text-on-primary flex flex-col gap-space-xs text-left transition-all duration-200 shadow-md ring-2 ring-primary-container" id="btn-dine-in" onclick="setOrderType('dine-in')" type="button">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-[24px] text-on-primary" id="icon-dine-in">restaurant</span>
+<span class="w-4 h-4 rounded-full bg-secondary flex items-center justify-center" id="radio-dine-in" data-role="radio-indicator">
+<span class="w-2 h-2 rounded-full bg-surface-container-lowest"></span>
+</span>
+</div>
+<span class="font-label-md text-label-md font-semibold mt-space-xs">Makan di Tempat</span>
+<span class="font-body-sm text-body-sm text-on-primary-container" id="dine-in-table-desc">Nomor meja siap saji</span>
+</button>
+<button class="p-space-md rounded-lg bg-surface-container text-on-surface flex flex-col gap-space-xs text-left transition-all duration-200 hover:bg-surface-container-high" id="btn-takeaway" onclick="setOrderType('takeaway')" type="button">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-[24px] text-on-surface-variant" id="icon-takeaway">shopping_bag</span>
+<span class="w-4 h-4 rounded-full bg-outline-variant" id="radio-takeaway" data-role="radio-indicator"></span>
+</div>
+<span class="font-label-md text-label-md font-semibold mt-space-xs">Bawa Pulang</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="takeaway-desc">Kemasan ramah lingkungan</span>
+</button>
+<button class="p-space-md rounded-lg bg-surface-container text-on-surface flex flex-col gap-space-xs text-left transition-all duration-200 hover:bg-surface-container-high" id="btn-delivery" onclick="setOrderType('delivery')" type="button">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-[24px] text-on-surface-variant" id="icon-delivery">two_wheeler</span>
+<span class="w-4 h-4 rounded-full bg-outline-variant" id="radio-delivery" data-role="radio-indicator"></span>
+</div>
+<span class="font-label-md text-label-md font-semibold mt-space-xs">Pengantaran Lokal</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="delivery-desc">Radius &lt; 5km Senopati</span>
+</button>
+</div>
+<div class="p-space-md bg-surface-container-low rounded-lg flex flex-col sm:flex-row gap-space-md items-start sm:items-center justify-between" id="type-detail-dine-in">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">table_bar</span>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface font-semibold block" for="table-input">Tentukan Nomor Meja Anda</label>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Lihat stiker akrilik hitam keemasan di sudut meja Anda</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs w-full sm:w-auto">
+<span class="font-label-md text-label-md text-on-surface-variant font-semibold">Meja No.</span>
+<input class="w-20 px-space-sm py-space-xs rounded bg-surface-container-lowest text-center font-headline-sm text-headline-sm text-primary focus:outline-none focus:bg-surface-container shadow-inner" id="table-input" type="text" value="14">
+</div>
+</div>
+<div class="hidden p-space-md bg-surface-container-low rounded-lg flex flex-col sm:flex-row gap-space-md items-start sm:items-center justify-between" id="type-detail-takeaway">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">schedule</span>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface font-semibold block" for="takeaway-time">Waktu Pengambilan</label>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Pesanan disiapkan segar saat Anda tiba di bar pick-up</p>
+</div>
+</div>
+<select class="px-space-md py-space-xs rounded bg-surface-container-lowest font-body-sm text-body-sm text-on-surface focus:outline-none" id="takeaway-time">
+<option>Sekarang (15-20 menit)</option>
+<option>30 menit lagi</option>
+<option>45 menit lagi</option>
+<option>1 jam lagi</option>
+</select>
+</div>
+<div class="hidden p-space-md bg-surface-container-low rounded-lg flex flex-col gap-space-sm" id="type-detail-delivery">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">home_pin</span>
+<div class="w-full">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold block" for="delivery-addr">Alamat Pengantaran Sekitar</label>
+<textarea class="w-full mt-space-xs p-space-sm rounded bg-surface-container-lowest font-body-sm text-body-sm text-on-surface focus:outline-none resize-none" id="delivery-addr" placeholder="Contoh: Jl. Suryo No. 12, Kantor Flamboyan Lt. 3" rows="2"></textarea>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-sm text-label-sm">2</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Data Pemesan</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="cust-name">Nama Lengkap</label>
+<div class="flex items-center px-space-md py-space-sm bg-surface-container-low rounded-lg focus-within:bg-surface-container">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px] mr-space-sm">person</span>
+<input class="bg-transparent font-body-md text-body-md text-on-surface w-full focus:outline-none" id="cust-name" type="text" value="Arga Daniswara">
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="cust-phone">Nomor WhatsApp Aktif (Notifikasi Status)</label>
+<div class="flex items-center px-space-md py-space-sm bg-surface-container-low rounded-lg focus-within:bg-surface-container">
+<span class="font-label-md text-label-md text-on-surface-variant mr-space-xs font-semibold">+62</span>
+<input class="bg-transparent font-body-md text-body-md text-on-surface w-full focus:outline-none" id="cust-phone" type="tel" value="813-9821-4490">
+<span class="material-symbols-outlined text-tertiary-container text-[20px]">check_circle</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="order-notes">Catatan Tambahan untuk Barista / Chef (Opsional)</label>
+<input class="px-space-md py-space-sm bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none focus:bg-surface-container" id="order-notes" placeholder="Misal: Es dipisah, sendok kayu ekstra, atau jangan terlalu manis" type="text">
+</div>
+</section>
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-sm text-label-sm">3</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Metode Pembayaran Instan</h2>
+</div>
+<span class="px-space-sm py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">Otomatis Tanpa Bukti Transfer</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<div class="cursor-pointer p-space-md rounded-lg bg-surface-container-high text-on-surface flex items-start gap-space-md transition-all relative overflow-hidden" id="pay-opt-qris" onclick="selectPaymentMethod('qris')">
+<div class="w-2 h-full absolute left-0 top-0 bg-secondary"></div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">qr_code_scanner</span>
+</div>
+<div class="flex flex-col flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-primary">QRIS Instan (Rekomendasi)</span>
+<span class="px-space-xs py-0.5 rounded bg-secondary text-on-secondary font-label-sm text-label-sm text-[10px]">Paling Cepat</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">BCA, GoPay, OVO, Dana, ShopeePay, LinkAja</p>
+</div>
+</div>
+<div class="cursor-pointer p-space-md rounded-lg bg-surface-container-low text-on-surface flex items-start gap-space-md transition-all hover:bg-surface-container" id="pay-opt-va" onclick="selectPaymentMethod('va')">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]">account_balance</span>
+</div>
+<div class="flex flex-col flex-1">
+<span class="font-label-md text-label-md font-semibold text-primary">Virtual Account Bank</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">BCA, Mandiri, BNI, BRI (Cek Otomatis)</p>
+</div>
+</div>
+<div class="cursor-pointer p-space-md rounded-lg bg-surface-container-low text-on-surface flex items-start gap-space-md transition-all hover:bg-surface-container" id="pay-opt-cc" onclick="selectPaymentMethod('cc')">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]">credit_card</span>
+</div>
+<div class="flex flex-col flex-1">
+<span class="font-label-md text-label-md font-semibold text-primary">Kartu Debit &amp; Kredit</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Visa, Mastercard, JCB, GPN Online</p>
+</div>
+</div>
+<div class="cursor-pointer p-space-md rounded-lg bg-surface-container-low text-on-surface flex items-start gap-space-md transition-all hover:bg-surface-container" id="pay-opt-cash" onclick="selectPaymentMethod('cash')">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]">point_of_sale</span>
+</div>
+<div class="flex flex-col flex-1">
+<span class="font-label-md text-label-md font-semibold text-primary">Bayar di Kasir</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Tunjukkan kode pesanan ke barista kasir</p>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col gap-space-lg" id="qris-interactive-section">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-space-sm gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[20px]">qr_code_2</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Pembayaran QRIS Nasional</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Merchant ID: 0092-FAJARCAFE-JKT</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container self-start sm:self-auto">
+<span class="material-symbols-outlined text-secondary text-[18px]">timer</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Batas Bayar:</span>
+<span class="font-label-md text-label-md text-secondary font-bold font-mono" id="countdown-timer">14:59</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5 flex flex-col items-center">
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-md flex flex-col items-center gap-space-sm relative group">
+<div class="flex items-center justify-between w-full px-space-xs">
+<span class="font-label-sm text-label-sm font-bold text-primary tracking-wider">QRIS</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">GPN INDONESIA</span>
+</div>
+<div class="w-52 h-52 bg-white rounded-xl p-2.5 flex items-center justify-center shadow-md relative border-2 border-outline-variant/40 overflow-hidden cursor-pointer group/qr" onclick="openZoomQrisModal()" title="Klik untuk memperbesar QRIS">
+<img id="qris-image-display" src="" alt="Kode QRIS Resmi Fajar Cafe" class="w-full h-full object-contain transition-transform duration-300 group-hover/qr:scale-105" />
+<div id="qris-img-loading" class="absolute inset-0 bg-white/95 flex flex-col items-center justify-center gap-1.5 transition-opacity">
+<span class="material-symbols-outlined text-secondary animate-spin text-[28px]">sync</span>
+<span class="text-[11px] font-semibold text-primary">Membuat QRIS Resmi...</span>
+</div>
+<div class="absolute inset-0 bg-secondary/10 opacity-0 group-hover/qr:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+<span class="px-2.5 py-1 rounded-full bg-primary-container text-on-primary text-[10px] font-bold shadow-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">zoom_in</span> Perbesar
+</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-1 w-full justify-center">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-[11px] font-bold flex items-center gap-1.5 transition-all shadow-sm active:scale-95" onclick="downloadQrisImage()" type="button" title="Unduh gambar QRIS ke galeri HP">
+<span class="material-symbols-outlined text-[16px] text-secondary">download</span> Unduh QRIS
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-[11px] font-bold flex items-center gap-1.5 transition-all shadow-sm active:scale-95" onclick="openZoomQrisModal()" type="button" title="Perbesar tampilan QRIS">
+<span class="material-symbols-outlined text-[16px] text-secondary">zoom_in</span> Perbesar
+</button>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">touch_app</span>
+<span class="font-body-sm text-body-sm text-[11px]">Bisa langsung scan atau simpan ke galeri</span>
+</div>
+</div>
+<div class="mt-space-sm flex flex-wrap justify-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-[10px] text-on-surface-variant">BCA Mobile</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-[10px] text-on-surface-variant">Livin Mandiri</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-[10px] text-on-surface-variant">GoPay</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-[10px] text-on-surface-variant">OVO</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-[10px] text-on-surface-variant">ShopeePay</span>
+</div>
+</div>
+<div class="md:col-span-7 flex flex-col gap-space-md">
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Nominal Tepat yang Harus Dibayar:</span>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-lg text-headline-lg text-secondary font-bold tracking-tight" id="qris-nominal-val">Rp 0</span>
+<button class="px-space-sm py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors" onclick="copyQrisNominal()" type="button">Salin</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-[12px] mt-1">Tanpa biaya admin transfer. Sesuai nominal keranjang.</p>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">check_circle</span>
+<p class="font-body-sm text-body-sm text-on-surface">Scan kode QR di atas menggunakan aplikasi m-Banking atau E-Wallet apa saja.</p>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">sync</span>
+<p class="font-body-sm text-body-sm text-on-surface">Sistem kecerdasan Fajar Cafe mendeteksi pembayaran otomatis dalam <strong>3 detik</strong>.</p>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">receipt_long</span>
+<p class="font-body-sm text-body-sm text-on-surface">Struk digital instan langsung terkirim ke WhatsApp nomor terdaftar.</p>
+</div>
+</div>
+<div class="pt-space-xs">
+
+<!-- Interactive WhatsApp QRIS Sender Block -->
+<div class="mt-space-md p-space-md rounded-xl bg-surface-container border border-[#25D366]/40 flex flex-col gap-space-sm shadow-sm">
+  <div class="flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div class="w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center font-bold text-sm shadow-sm">
+        <span class="material-symbols-outlined text-[18px]">chat</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-label-md text-label-md font-bold text-primary">Kirim Tagihan QRIS ke WhatsApp</span>
+        <span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">Rincian pesanan & panduan QRIS otomatis terkirim</span>
+      </div>
+    </div>
+    <span class="px-2 py-0.5 rounded-full bg-[#25D366]/15 text-[#128C7E] font-label-sm text-label-sm font-semibold">Otomatis</span>
+  </div>
+
+  <button class="w-full py-3 px-space-md rounded-lg bg-[#25D366] hover:bg-[#1ebd5a] text-white font-label-md text-label-md font-bold flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all active:scale-[0.99]" id="btn-send-wa-customer" onclick="sendInvoiceToCustomerWhatsApp(false)" type="button">
+    <span class="material-symbols-outlined text-[20px]">send_to_mobile</span>
+    <span id="wa-btn-label">Kirim Tagihan & QRIS ke WA (+62 813-9821-4490)</span>
+  </button>
+
+  <div class="flex flex-col sm:flex-row items-center justify-between gap-2 pt-1 border-t border-outline-variant/30 text-center sm:text-left">
+    <button class="text-secondary hover:underline font-label-sm text-label-sm font-semibold flex items-center gap-1" onclick="sendInvoiceToCafeWhatsApp()" type="button">
+      <span class="material-symbols-outlined text-[16px]">storefront</span> Kirim ke WhatsApp Kasir / Cafe
+    </button>
+    <span class="text-on-surface-variant text-[11px]" id="wa-status-feedback">Nomor terhubung dengan WhatsApp</span>
+  </div>
+</div>
+
+<button class="w-full py-space-sm px-space-md rounded-lg bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center gap-space-sm hover:bg-secondary transition-all shadow-md active:scale-[0.99]" id="btn-check-status" onclick="manualCheckPayment()" type="button">
+<span class="material-symbols-outlined text-[20px] animate-spin" id="spinner-icon">refresh</span>
+<span id="check-btn-text">Sudah Bayar? Cek Status Pembayaran Otomatis</span>
+</button>
+<p class="text-center font-body-sm text-body-sm text-tertiary-container mt-space-xs flex items-center justify-center gap-1" id="status-live-msg">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse inline-block"></span>
+                    Menunggu aliran dana masuk secara real-time...
+                  </p>
+</div>
+</div>
+</div>
+</section>
+<section class="hidden bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md" id="va-placeholder-section">
+<h3 class="font-headline-sm text-headline-sm text-primary">Virtual Account Bank</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Pilih bank Anda untuk memperoleh nomor rekening virtual unik:</p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm">
+<div class="p-space-sm rounded bg-surface-container-low text-center font-label-md text-label-md font-semibold cursor-pointer hover:bg-surface-container">BCA VA</div>
+<div class="p-space-sm rounded bg-surface-container-low text-center font-label-md text-label-md font-semibold cursor-pointer hover:bg-surface-container">Mandiri VA</div>
+<div class="p-space-sm rounded bg-surface-container-low text-center font-label-md text-label-md font-semibold cursor-pointer hover:bg-surface-container">BNI VA</div>
+<div class="p-space-sm rounded bg-surface-container-low text-center font-label-md text-label-md font-semibold cursor-pointer hover:bg-surface-container">BRI VA</div>
+</div>
+<div class="p-space-md bg-surface-container-high rounded-lg flex items-center justify-between">
+<div>
+<span class="font-body-sm text-body-sm text-on-surface-variant block">No. Virtual Account (BCA):</span>
+<span class="font-headline-sm text-headline-sm text-primary font-mono font-bold">8273 0813 9821 4490</span>
+</div>
+<button class="px-space-md py-space-xs bg-primary-container text-on-primary rounded font-label-sm text-label-sm" type="button">Salin No VA</button>
+</div>
+</section>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-space-lg static lg:sticky lg:top-24">
+<aside class="bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[24px]">restaurant_menu</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Rincian Pesanan</h3>
+</div>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm font-semibold" id="checkout-badge-count">0 Item</span>
+</div>
+<div class="flex flex-col gap-space-md divide-y-0" id="checkout-order-items-container">
+<div class="py-6 text-center text-on-surface-variant text-sm flex flex-col items-center gap-2" id="checkout-empty-state">
+<span class="material-symbols-outlined text-[36px] text-outline">remove_shopping_cart</span>
+<span class="font-semibold text-primary">Keranjang Belanja Kosong</span>
+<p class="text-xs text-on-surface-variant max-w-xs">Anda belum memilih menu pesanan. Silakan pilih menu terlebih dahulu di katalog.</p>
+<a href="../fajar_cafe_semua_menu_pemesanan/code.html" class="mt-2 px-4 py-2 rounded-lg bg-primary-container text-on-primary text-xs font-bold hover:bg-secondary transition-colors inline-flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">restaurant_menu</span> Pilih Menu Sekarang
+</a>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">loyalty</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-bold text-primary">FAJARONLINE</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">Diskon Pelanggan Baru 10%</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary-container font-semibold">Terpasang</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Subtotal Makanan &amp; Minuman</span>
+<span id="checkout-subtotal-val">Rp 0</span>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Pajak Restoran (PB1 10%)</span>
+<span id="checkout-tax-val">Rp 0</span>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm text-secondary font-semibold">
+<span>Potongan Promo Voucher</span>
+<span id="checkout-discount-val">- Rp 0</span>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant">
+<span>Biaya Layanan &amp; Meja</span>
+<span class="text-tertiary-container font-semibold">Gratis</span>
+</div>
+<div class="h-px bg-outline-variant my-space-xs opacity-50"></div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-primary">Total Pembayaran</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px]">Sudah termasuk PPN &amp; Servis</span>
+</div>
+<span class="font-headline-md text-headline-md text-primary font-bold" id="checkout-total-val">Rp 0</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex items-center gap-space-sm p-space-sm rounded-lg bg-tertiary-fixed/40 text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-[20px] text-tertiary-container">verified</span>
+<span class="font-label-sm text-label-sm text-tertiary-container font-semibold">100% Pembayaran Aman &amp; Terverifikasi Otomatis</span>
+</div>
+<a class="flex items-center justify-center gap-space-xs py-space-sm px-space-md rounded-lg text-secondary hover:bg-secondary/10 transition-colors font-label-sm text-label-sm font-semibold" href="https://wa.me/6282338903403?text=Halo%20Fajar%20Cafe,%20saya%20butuh%20bantuan%20terkait%20pesanan%20%23FJR-9842" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+<span>Butuh Bantuan? Chat WhatsApp Staff Resto</span>
+</a>
+</div>
+</aside>
+<div class="p-space-md rounded-xl bg-surface-container flex items-center gap-space-md">
+<span class="material-symbols-outlined text-secondary text-[28px]">local_cafe</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold text-primary">Fajar Loyalty Point</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-[12px]">Dapatkan +107 Fajar Beans dari transaksi ini untuk ditukar secangkir filter coffee gratis.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  let countdownSeconds = 899;
+  const countdownEl = document.getElementById('countdown-timer');
+
+  if (countdownEl) {
+    const timerInterval = setInterval(() => {
+      if (countdownSeconds <= 0) {
+        clearInterval(timerInterval);
+        countdownEl.innerText = "00:00 (Kedaluwarsa)";
+        return;
+      }
+      countdownSeconds--;
+      const mins = Math.floor(countdownSeconds / 60);
+      const secs = countdownSeconds % 60;
+      countdownEl.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }, 1000);
+  }
+
+  let currentOrderType = 'dine-in';
+  let currentTable = 'Meja #04';
+
+  function setOrderType(type, persist = true) {
+    currentOrderType = type;
+    if (persist) {
+      try {
+        sessionStorage.setItem('fajar_order_type', type);
+        localStorage.setItem('fajar_order_type', type);
+      } catch(e) {}
+    }
+
+    const configs = [
+      { id: 'btn-dine-in', iconId: 'icon-dine-in', radioId: 'radio-dine-in', descId: 'dine-in-table-desc', active: type === 'dine-in' },
+      { id: 'btn-takeaway', iconId: 'icon-takeaway', radioId: 'radio-takeaway', descId: 'takeaway-desc', active: type === 'takeaway' },
+      { id: 'btn-delivery', iconId: 'icon-delivery', radioId: 'radio-delivery', descId: 'delivery-desc', active: type === 'delivery' }
+    ];
+
+    configs.forEach(c => {
+      const btn = document.getElementById(c.id);
+      const icon = document.getElementById(c.iconId);
+      const radio = document.getElementById(c.radioId);
+      const desc = document.getElementById(c.descId);
+
+      if (!btn) return;
+      if (c.active) {
+        btn.className = "p-space-md rounded-lg bg-primary-container text-on-primary flex flex-col gap-space-xs text-left transition-all duration-200 shadow-md ring-2 ring-primary-container";
+        if (icon) icon.className = "material-symbols-outlined text-[24px] text-on-primary";
+        if (radio) {
+          radio.className = "w-4 h-4 rounded-full bg-secondary flex items-center justify-center";
+          radio.innerHTML = '<span class="w-2 h-2 rounded-full bg-surface-container-lowest"></span>';
+        }
+        if (desc) desc.className = "font-body-sm text-body-sm text-on-primary-container";
+      } else {
+        btn.className = "p-space-md rounded-lg bg-surface-container text-on-surface flex flex-col gap-space-xs text-left transition-all duration-200 hover:bg-surface-container-high";
+        if (icon) icon.className = "material-symbols-outlined text-[24px] text-on-surface-variant";
+        if (radio) {
+          radio.className = "w-4 h-4 rounded-full bg-outline-variant";
+          radio.innerHTML = '';
+        }
+        if (desc) desc.className = "font-body-sm text-body-sm text-on-surface-variant";
+      }
+    });
+
+    const detailDineIn = document.getElementById('type-detail-dine-in');
+    const detailTakeaway = document.getElementById('type-detail-takeaway');
+    const detailDelivery = document.getElementById('type-detail-delivery');
+
+    if (detailDineIn) detailDineIn.classList.toggle('hidden', type !== 'dine-in');
+    if (detailTakeaway) detailTakeaway.classList.toggle('hidden', type !== 'takeaway');
+    if (detailDelivery) detailDelivery.classList.toggle('hidden', type !== 'delivery');
+
+    // Update Header Pill Toggle
+    const headerDine = document.getElementById('header-btn-dine-in');
+    const headerTake = document.getElementById('header-btn-takeaway');
+    const mobDine = document.getElementById('mobile-btn-dine-in');
+    const mobTake = document.getElementById('mobile-btn-takeaway');
+
+    const isDine = type === 'dine-in';
+    [headerDine, mobDine].forEach(el => {
+      if (!el) return;
+      if (isDine) {
+        el.className = el.id.includes('mobile')
+          ? "px-3 py-1 rounded-full bg-primary-container text-on-primary text-xs font-semibold transition-all"
+          : "px-space-md py-space-xs rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm shadow-[0_1px_4px_rgba(44,24,16,0.08)] font-semibold transition-all";
+      } else {
+        el.className = el.id.includes('mobile')
+          ? "px-3 py-1 rounded-full text-on-surface-variant text-xs font-semibold transition-all"
+          : "px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors";
+      }
+    });
+
+    [headerTake, mobTake].forEach(el => {
+      if (!el) return;
+      if (!isDine) {
+        el.className = el.id.includes('mobile')
+          ? "px-3 py-1 rounded-full bg-primary-container text-on-primary text-xs font-semibold transition-all"
+          : "px-space-md py-space-xs rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm shadow-[0_1px_4px_rgba(44,24,16,0.08)] font-semibold transition-all";
+      } else {
+        el.className = el.id.includes('mobile')
+          ? "px-3 py-1 rounded-full text-on-surface-variant text-xs font-semibold transition-all"
+          : "px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors";
+      }
+    });
+
+    updateWaButtonLabel();
+  }
+
+  function selectPaymentMethod(method) {
+    const qrisSection = document.getElementById('qris-interactive-section');
+    const vaSection = document.getElementById('va-placeholder-section');
+
+    const optQris = document.getElementById('pay-opt-qris');
+    const optVa = document.getElementById('pay-opt-va');
+    const optCc = document.getElementById('pay-opt-cc');
+    const optCash = document.getElementById('pay-opt-cash');
+
+    const opts = [optQris, optVa, optCc, optCash];
+    opts.forEach(el => {
+      if (el) {
+        el.className = "cursor-pointer p-space-md rounded-lg bg-surface-container-low text-on-surface flex items-start gap-space-md transition-all hover:bg-surface-container";
+      }
+    });
+
+    if (method === 'qris') {
+      if (optQris) optQris.className = "cursor-pointer p-space-md rounded-lg bg-surface-container-high text-on-surface flex items-start gap-space-md transition-all relative overflow-hidden";
+      if (qrisSection) qrisSection.classList.remove('hidden');
+      if (vaSection) vaSection.classList.add('hidden');
+    } else if (method === 'va') {
+      if (optVa) optVa.className = "cursor-pointer p-space-md rounded-lg bg-surface-container-high text-on-surface flex items-start gap-space-md transition-all relative overflow-hidden";
+      if (qrisSection) qrisSection.classList.add('hidden');
+      if (vaSection) vaSection.classList.remove('hidden');
+    } else {
+      if (method === 'cc' && optCc) optCc.className = "cursor-pointer p-space-md rounded-lg bg-surface-container-high text-on-surface flex items-start gap-space-md transition-all relative overflow-hidden";
+      if (method === 'cash' && optCash) optCash.className = "cursor-pointer p-space-md rounded-lg bg-surface-container-high text-on-surface flex items-start gap-space-md transition-all relative overflow-hidden";
+      if (qrisSection) qrisSection.classList.add('hidden');
+      if (vaSection) vaSection.classList.add('hidden');
+    }
+  }
+
+  // DYNAMIC CART RENDERING & WHATSAPP GENERATION
+  const fallbackImg = (window.CONFIG && typeof window.CONFIG.resolvePath === 'function')
+    ? window.CONFIG.resolvePath("assets/images/menu-default-fallback.jpg")
+    : "../assets/images/menu-default-fallback.jpg";
+
+  const itemImagesCache = (window.CONFIG && typeof window.CONFIG.getMenuImagesCache === 'function')
+    ? window.CONFIG.getMenuImagesCache()
+    : {
+      "Kopi Susu Fajar": { "price": 28000, "img": "../assets/images/menu-kopi-susu.jpg" },
+      "Espresso Dobel Fajar": { "price": 22000, "img": "../assets/images/menu-espresso-dobel.jpg" },
+      "Iced Spanish Latte": { "price": 32000, "img": "../assets/images/menu-spanish-latte.jpg" },
+      "Americano Madu Sumbawa": { "price": 26000, "img": "../assets/images/menu-espresso-dobel.jpg" },
+      "Piccolo Coffee": { "price": 25000, "img": "../assets/images/menu-manual-brew.jpg" },
+      "Croissant Almond": { "price": 34000, "img": "../assets/images/menu-croissant.jpg" },
+      "Nasi Goreng Kampung Fajar": { "price": 45000, "img": "../assets/images/menu-nasi-goreng.jpg" }
+    };
+
+  let checkoutCart = {};
+  let subtotalAmount = 0;
+  let taxAmount = 0;
+  let discountAmount = 0;
+  let totalAmount = 0;
+  let totalItemsCount = 0;
+
+  function isPageReload() {
+    try {
+      const nav = performance.getEntriesByType('navigation');
+      if (nav && nav.length > 0) return nav[0].type === 'reload';
+      if (window.performance && window.performance.navigation) {
+        return window.performance.navigation.type === 1;
+      }
+    } catch(e) {}
+    return false;
+  }
+
+  function loadCartData() {
+    checkoutCart = {};
+
+    // If page is refreshed (F5 / reload), reset all orders to 0!
+    if (isPageReload()) {
+      try {
+        localStorage.removeItem('fajar_cart');
+        sessionStorage.removeItem('fajar_cart');
+      } catch(e) {}
+    } else {
+      try {
+        const saved = sessionStorage.getItem('fajar_cart') || localStorage.getItem('fajar_cart');
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && typeof parsed === 'object') {
+            checkoutCart = parsed;
+          }
+        }
+      } catch(e) {}
+    }
+
+    // Restore order type preference
+    const savedType = sessionStorage.getItem('fajar_order_type') || localStorage.getItem('fajar_order_type') || 'dine-in';
+    setOrderType(savedType, false);
+
+    // Read and bind table preference
+    const tableInput = document.getElementById('table-input');
+    const tableDesc = document.getElementById('dine-in-table-desc');
+    const savedTable = sessionStorage.getItem('fajar_table') || localStorage.getItem('fajar_table');
+
+    if (savedTable) {
+      currentTable = 'Meja #' + savedTable;
+      if (tableInput) tableInput.value = savedTable;
+    } else if (tableInput && tableInput.value) {
+      currentTable = 'Meja #' + tableInput.value;
+    }
+
+    if (tableDesc) tableDesc.innerText = 'Nomor meja: ' + currentTable;
+
+    if (tableInput) {
+      tableInput.oninput = function() {
+        const val = this.value.trim();
+        currentTable = val ? 'Meja #' + val : 'Meja #04';
+        if (tableDesc) tableDesc.innerText = 'Nomor meja: ' + currentTable;
+        try {
+          localStorage.setItem('fajar_table', val);
+          sessionStorage.setItem('fajar_table', val);
+        } catch(e) {}
+      };
+    }
+
+    renderCheckoutItems();
+    updateWaButtonLabel();
+  }
+
+  function renderCheckoutItems() {
+    const container = document.getElementById('checkout-order-items-container');
+    if (!container) return;
+
+    container.innerHTML = '';
+    subtotalAmount = 0;
+    totalItemsCount = 0;
+
+    for (let name in checkoutCart) {
+      const item = checkoutCart[name];
+      if (item && item.qty > 0) {
+        totalItemsCount += item.qty;
+        const lineTotal = item.qty * item.price;
+        subtotalAmount += lineTotal;
+
+        const info = itemImagesCache[name] || {};
+        const imgUrl = info.img || fallbackImg;
+
+        const itemRow = document.createElement('div');
+        itemRow.className = "flex items-start gap-space-md py-space-xs border-b border-outline-variant/30 last:border-b-0";
+        itemRow.innerHTML = `
+          <img class="w-16 h-16 rounded-lg object-cover shrink-0 shadow-sm" src="${imgUrl}" alt="${name}">
+          <div class="flex flex-col flex-1 min-w-0">
+            <div class="flex items-start justify-between gap-space-xs">
+              <h4 class="font-label-md text-label-md text-primary font-semibold truncate">${name}</h4>
+              <span class="font-label-md text-label-md text-primary font-bold whitespace-nowrap">Rp ${lineTotal.toLocaleString('id-ID')}</span>
+            </div>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">${item.qty}x • Rp ${item.price.toLocaleString('id-ID')} / porsi</span>
+            <span class="font-label-sm text-label-sm text-secondary mt-0.5">Fajar Cafe Special</span>
+          </div>
+        `;
+        container.appendChild(itemRow);
+      }
+    }
+
+    if (totalItemsCount === 0) {
+      container.innerHTML = `
+        <div class="py-6 text-center text-on-surface-variant text-sm flex flex-col items-center gap-2" id="checkout-empty-state">
+          <span class="material-symbols-outlined text-[36px] text-outline">remove_shopping_cart</span>
+          <span class="font-semibold text-primary">Keranjang Belanja Kosong (0 Item)</span>
+          <p class="text-xs text-on-surface-variant max-w-xs">Anda belum memilih menu pesanan. Silakan pilih menu terlebih dahulu di katalog.</p>
+          <a href="../fajar_cafe_semua_menu_pemesanan/code.html" class="mt-2 px-4 py-2 rounded-lg bg-primary-container text-on-primary text-xs font-bold hover:bg-secondary transition-colors inline-flex items-center gap-1.5 shadow-sm">
+            <span class="material-symbols-outlined text-[16px]">restaurant_menu</span> Pilih Menu Sekarang
+          </a>
+        </div>
+      `;
+    }
+
+    // Taxes & Discounts
+    if (subtotalAmount > 0) {
+      taxAmount = Math.round(subtotalAmount * 0.1);
+      discountAmount = Math.round(subtotalAmount * 0.1); // Promo FAJARONLINE 10%
+      totalAmount = subtotalAmount + taxAmount - discountAmount;
+    } else {
+      taxAmount = 0;
+      discountAmount = 0;
+      totalAmount = 0;
+    }
+
+    // Update UI elements
+    const badgeCount = document.getElementById('checkout-badge-count');
+    if (badgeCount) badgeCount.innerText = totalItemsCount + ' Item';
+
+    const subtotalEl = document.getElementById('checkout-subtotal-val');
+    if (subtotalEl) subtotalEl.innerText = 'Rp ' + subtotalAmount.toLocaleString('id-ID');
+
+    const taxEl = document.getElementById('checkout-tax-val');
+    if (taxEl) taxEl.innerText = 'Rp ' + taxAmount.toLocaleString('id-ID');
+
+    const discEl = document.getElementById('checkout-discount-val');
+    if (discEl) discEl.innerText = '- Rp ' + discountAmount.toLocaleString('id-ID');
+
+    const totalEl = document.getElementById('checkout-total-val');
+    if (totalEl) totalEl.innerText = 'Rp ' + totalAmount.toLocaleString('id-ID');
+
+    const qrisNominalEl = document.getElementById('qris-nominal-val');
+    if (qrisNominalEl) qrisNominalEl.innerText = 'Rp ' + totalAmount.toLocaleString('id-ID');
+
+    // Header counter sync
+    const headerCart = document.querySelector('header a[data-path="keranjang-pesanan"]');
+    if (headerCart) {
+      const c1 = headerCart.querySelector('.font-label-sm');
+      const c2 = headerCart.querySelector('.font-body-sm');
+      if (c1) c1.innerText = totalItemsCount + ' Item';
+      if (c2) c2.innerText = 'Rp ' + totalAmount.toLocaleString('id-ID');
+    }
+
+    // Dynamic QRIS update
+    updateQrisDisplay();
+  }
+
+  let currentQrisPayload = '';
+  let currentQrisImgUrl = '';
+
+  function crc16(str) {
+    let crc = 0xFFFF;
+    for (let i = 0; i < str.length; i++) {
+      let c = str.charCodeAt(i);
+      crc ^= (c << 8);
+      for (let j = 0; j < 8; j++) {
+        if ((crc & 0x8000) !== 0) {
+          crc = ((crc << 1) ^ 0x1021) & 0xFFFF;
+        } else {
+          crc = (crc << 1) & 0xFFFF;
+        }
+      }
+    }
+    let hex = crc.toString(16).toUpperCase();
+    while (hex.length < 4) hex = '0' + hex;
+    return hex;
+  }
+
+  function buildQrisPayload(merchantName, amount, orderId) {
+    let s = '000201';
+    s += '010212'; // Dynamic QR
+    let mInfo = '0014ID.LINKAJA.WWW01189360092FAJARCAFE02' + String(orderId.length).padStart(2, '0') + orderId;
+    s += '26' + String(mInfo.length).padStart(2, '0') + mInfo;
+    s += '52045812'; // MCC 5812 Eating Places
+    s += '5303360';  // Currency IDR
+    let amtStr = String(Math.round(amount));
+    s += '54' + String(amtStr.length).padStart(2, '0') + amtStr;
+    s += '5802ID';   // Country ID
+    let mName = (merchantName || 'FAJAR CAFE').substring(0, 25);
+    s += '59' + String(mName.length).padStart(2, '0') + mName;
+    let city = 'JAKARTA';
+    s += '60' + String(city.length).padStart(2, '0') + city;
+    let postal = '12190';
+    s += '61' + String(postal.length).padStart(2, '0') + postal;
+    let ref = '01' + String(orderId.length).padStart(2, '0') + orderId;
+    s += '62' + String(ref.length).padStart(2, '0') + ref;
+    s += '6304';
+    s += crc16(s);
+    return s;
+  }
+
+  function updateQrisDisplay() {
+    currentQrisPayload = buildQrisPayload('FAJAR CAFE', totalAmount, 'FJR-9842');
+    currentQrisImgUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=500x500&margin=15&data=' + encodeURIComponent(currentQrisPayload);
+
+    const imgEl = document.getElementById('qris-image-display');
+    const loadingEl = document.getElementById('qris-img-loading');
+    const zoomImg = document.getElementById('qris-zoom-img');
+    const zoomNominal = document.getElementById('qris-zoom-nominal');
+
+    if (loadingEl) loadingEl.classList.remove('hidden');
+
+    if (imgEl) {
+      imgEl.onload = () => {
+        if (loadingEl) loadingEl.classList.add('hidden');
+      };
+      imgEl.onerror = () => {
+        if (loadingEl) loadingEl.classList.add('hidden');
+      };
+      imgEl.src = currentQrisImgUrl;
+    }
+    if (zoomImg) zoomImg.src = currentQrisImgUrl;
+    if (zoomNominal) zoomNominal.innerText = 'Rp ' + totalAmount.toLocaleString('id-ID');
+  }
+
+  window.downloadQrisImage = async function() {
+    const feedback = document.getElementById('wa-status-feedback');
+    try {
+      if (feedback) feedback.innerText = '⏳ Sedang mengunduh gambar QRIS...';
+      const response = await fetch(currentQrisImgUrl);
+      const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = blobUrl;
+      a.download = 'QRIS_Fajar_Cafe_FJR-9842.png';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(blobUrl);
+      if (feedback) {
+        feedback.innerText = '✅ Gambar QRIS berhasil disimpan ke galeri!';
+        setTimeout(() => { feedback.innerText = 'Nomor terhubung dengan WhatsApp'; }, 3000);
+      }
+    } catch (e) {
+      window.open(currentQrisImgUrl, '_blank');
+      if (feedback) {
+        feedback.innerText = '✅ Gambar QRIS dibuka di tab baru untuk disimpan!';
+        setTimeout(() => { feedback.innerText = 'Nomor terhubung dengan WhatsApp'; }, 3000);
+      }
+    }
+  };
+
+  window.openZoomQrisModal = function() {
+    const modal = document.getElementById('qris-zoom-modal');
+    if (modal) modal.classList.remove('hidden');
+  };
+
+  window.closeZoomQrisModal = function() {
+    const modal = document.getElementById('qris-zoom-modal');
+    if (modal) modal.classList.add('hidden');
+  };
+
+  function copyQrisNominal() {
+    navigator.clipboard.writeText(totalAmount.toString());
+    const feedback = document.getElementById('wa-status-feedback');
+    if (feedback) {
+      feedback.innerText = '✅ Nominal Rp ' + totalAmount.toLocaleString('id-ID') + ' berhasil disalin!';
+      setTimeout(() => { feedback.innerText = 'Nomor terhubung dengan WhatsApp'; }, 2500);
+    }
+  }
+
+  function getCleanPhoneNumber() {
+    const phoneInput = document.getElementById('cust-phone');
+    const raw = phoneInput ? phoneInput.value.trim() : '813-9821-4490';
+    let clean = raw.replace(/\D/g, '');
+    if (clean.startsWith('0')) clean = '62' + clean.substring(1);
+    else if (clean.startsWith('8')) clean = '62' + clean;
+    else if (!clean.startsWith('62')) clean = '62' + clean;
+    return clean;
+  }
+
+  function updateWaButtonLabel() {
+    const clean = getCleanPhoneNumber();
+    const btnLabel = document.getElementById('wa-btn-label');
+    if (btnLabel) {
+      btnLabel.innerText = 'Kirim Tagihan & QRIS ke WA Saya (+ ' + clean + ')';
+    }
+  }
+
+  function generateInvoiceMessage(isReceipt = false) {
+    const custName = (document.getElementById('cust-name')?.value || 'Pelanggan Fajar').trim();
+    const cleanPhone = getCleanPhoneNumber();
+    const notes = (document.getElementById('order-notes')?.value || '-').trim();
+
+    let serviceStr = 'Makan di Tempat (' + currentTable + ')';
+    if (currentOrderType === 'takeaway') {
+      const t = document.getElementById('takeaway-time')?.value || '15-20 menit';
+      serviceStr = 'Bawa Pulang / Takeaway (' + t + ')';
+    } else if (currentOrderType === 'delivery') {
+      const addr = document.getElementById('delivery-addr')?.value || 'Senopati Area';
+      serviceStr = 'Pengantaran Lokal (Alamat: ' + addr + ')';
+    }
+
+    const payload = currentQrisPayload || buildQrisPayload('FAJAR CAFE', totalAmount, 'FJR-9842');
+    const qrisDirectImgUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=600x600&margin=15&data=' + encodeURIComponent(payload);
+    const invoiceWebUrl = (window.location.origin || 'http://localhost:8080') + '/qris_invoice.html?order=FJR-9842&total=' + totalAmount + '&name=' + encodeURIComponent(custName) + '&phone=' + encodeURIComponent(cleanPhone) + '&service=' + encodeURIComponent(serviceStr);
+
+    let msg = `☕ *FAJAR CAFE & BISTRO SENOPATI* ☕\n`;
+    if (isReceipt) {
+      msg += `✅ *BUKTI STRUK PEMBAYARAN RESMI (LUNAS)*\n`;
+    } else {
+      msg += `📋 *TAGIHAN & QRIS PEMBAYARAN RESMI*\n`;
+    }
+    msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+    msg += `🏷️ *Kode Order:* #FJR-9842\n`;
+    msg += `👤 *Nama Pelanggan:* ${custName}\n`;
+    msg += `📱 *WhatsApp:* +${cleanPhone}\n`;
+    msg += `🍽️ *Tipe Santap:* ${serviceStr}\n`;
+    if (currentOrderType === 'takeaway') {
+      msg += `📦 *Kemasan:* Box Ramah Lingkungan & Paper Bag Fajar Cafe\n`;
+    }
+    if (notes && notes !== '-') msg += `📝 *Catatan:* ${notes}\n`;
+    msg += `⏰ *Waktu:* ${new Date().toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })} WIB\n\n`;
+
+    msg += `🧾 *RINCIAN PESANAN (${totalItemsCount} Menu):*\n`;
+    for (let name in checkoutCart) {
+      const it = checkoutCart[name];
+      if (it.qty > 0) {
+        msg += `• ${it.qty}x ${name} @ Rp ${it.price.toLocaleString('id-ID')} = Rp ${(it.qty * it.price).toLocaleString('id-ID')}\n`;
+      }
+    }
+    msg += `\n━━━━━━━━━━━━━━━━━━━━━\n`;
+    msg += `💵 Subtotal: Rp ${subtotalAmount.toLocaleString('id-ID')}\n`;
+    msg += `📑 Pajak Restoran (10%): Rp ${taxAmount.toLocaleString('id-ID')}\n`;
+    msg += `🏷️ Diskon Promo (10%): - Rp ${discountAmount.toLocaleString('id-ID')}\n`;
+    msg += `💰 *TOTAL TAGIHAN:* *Rp ${totalAmount.toLocaleString('id-ID')}*\n`;
+    msg += `━━━━━━━━━━━━━━━━━━━━━\n\n`;
+
+    if (isReceipt) {
+      msg += `🎉 *STATUS: LUNAS & TERVERIFIKASI OTOMATIS*\n`;
+      msg += `Pesanan telah masuk ke sistem dapur/barista Fajar Cafe dan segera dihidangkan.\n\n`;
+    } else {
+      msg += `📸 *GAMBAR QRIS RESMI (BISA LANGSUNG DI-SCAN):*\n`;
+      msg += `👉 ${qrisDirectImgUrl}\n\n`;
+      msg += `📱 *CARA BAYAR (SANGAT MUDAH):*\n`;
+      msg += `1. Klik tautan foto QRIS di atas untuk membuka gambar QRIS.\n`;
+      msg += `2. Screenshot foto QRIS tersebut di HP Anda.\n`;
+      msg += `3. Buka m-Banking (BCA Mobile, Livin Mandiri, BRImo, BNI) atau E-Wallet (GoPay, OVO, Dana, ShopeePay).\n`;
+      msg += `4. Pilih menu QRIS ➡️ "Scan dari Galeri" ➡️ pilih foto screenshot tadi.\n`;
+      msg += `5. Nominal *Rp ${totalAmount.toLocaleString('id-ID')}* & nama *FAJAR CAFE* otomatis muncul. Konfirmasi bayar!\n\n`;
+      msg += `📄 *Lihat Struk Digital & Detail Pesanan:*\n`;
+      msg += `👉 ${invoiceWebUrl}\n\n`;
+    }
+
+    msg += `📍 *Fajar Cafe & Bistro*\nJl. Senopati No. 42, Kebayoran Baru, Jakarta Selatan\n`;
+    msg += `Layanan Kasir / Pelanggan: +62 823-3890-3403`;
+    return msg;
+  }
+
+  window.sendInvoiceToCustomerWhatsApp = function(isReceipt = false) {
+    const cleanPhone = getCleanPhoneNumber();
+    const msg = generateInvoiceMessage(isReceipt);
+    const waUrl = 'https://api.whatsapp.com/send?phone=' + cleanPhone + '&text=' + encodeURIComponent(msg);
+
+    // Open WhatsApp
+    window.open(waUrl, '_blank');
+
+    const feedback = document.getElementById('wa-status-feedback');
+    if (feedback) {
+      feedback.innerHTML = `<span class="text-[#128C7E] font-semibold">✅ Tagihan & QRIS berhasil dibuka di WhatsApp (+${cleanPhone})!</span>`;
+    }
+  };
+
+  window.sendInvoiceToCafeWhatsApp = function() {
+    const cafePhone = '6282338903403';
+    const msg = generateInvoiceMessage(false);
+    const waUrl = 'https://api.whatsapp.com/send?phone=' + cafePhone + '&text=' + encodeURIComponent(msg);
+    window.open(waUrl, '_blank');
+  };
+
+  function manualCheckPayment() {
+    const btnText = document.getElementById('check-btn-text');
+    const statusMsg = document.getElementById('status-live-msg');
+    const spinner = document.getElementById('spinner-icon');
+
+    if (!btnText || !statusMsg) return;
+
+    btnText.innerText = "Memverifikasi dengan Bank BI QRIS...";
+    if (spinner) spinner.classList.add('animate-spin');
+
+    setTimeout(() => {
+      btnText.innerText = "Pembayaran Terkonfirmasi! Pesanan Diproses";
+      statusMsg.innerHTML = `<div class="flex flex-col gap-2 p-3 bg-tertiary-fixed/30 rounded-lg text-tertiary-container font-semibold">
+        <span class="flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[20px]">verified</span> Pembayaran Berhasil Terverifikasi! ${currentTable} segera dilayani.</span>
+        <button type="button" onclick="sendInvoiceToCustomerWhatsApp(true)" class="py-2 px-3 rounded-lg bg-[#25D366] text-white hover:bg-[#1ebd5a] text-xs font-bold flex items-center justify-center gap-1.5 shadow">
+          <span class="material-symbols-outlined text-[16px]">receipt_long</span> Kirim Struk Digital Resmi ke WhatsApp
+        </button>
+      </div>`;
+      if (spinner) {
+        spinner.classList.remove('animate-spin');
+        spinner.innerText = "check";
+      }
+
+      // Automatically prompt sending receipt to customer WhatsApp
+      sendInvoiceToCustomerWhatsApp(true);
+    }, 2000);
+  }
+
+  // Initialize checkout data
+  document.addEventListener('DOMContentLoaded', () => {
+    loadCartData();
+    const phoneInput = document.getElementById('cust-phone');
+    if (phoneInput) {
+      phoneInput.addEventListener('input', updateWaButtonLabel);
+    }
+  });
+</script>
+
+<!-- Modal Zoom QRIS -->
+<div id="qris-zoom-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+  <div class="bg-surface rounded-2xl max-w-sm w-full p-6 shadow-2xl flex flex-col items-center gap-4 relative border border-outline-variant/40">
+    <button onclick="closeZoomQrisModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors" type="button" aria-label="Tutup Modal">
+      <span class="material-symbols-outlined text-[20px]">close</span>
+    </button>
+    <div class="text-center">
+      <div class="flex items-center justify-center gap-1 text-secondary mb-1">
+        <span class="material-symbols-outlined text-[18px]">qr_code_2</span>
+        <span class="text-[11px] font-bold uppercase tracking-wider">QRIS Standar Bank Indonesia</span>
+      </div>
+      <h3 class="text-xl font-bold text-primary font-headline-sm">FAJAR CAFE & BISTRO</h3>
+      <p class="text-xs text-on-surface-variant font-mono">NMID: 0092-FAJARCAFE-JKT</p>
+    </div>
+    <div class="w-64 h-64 bg-white p-3 rounded-xl border-2 border-outline-variant/60 shadow-inner flex items-center justify-center relative">
+      <img id="qris-zoom-img" src="" alt="QRIS Fajar Cafe" class="w-full h-full object-contain" />
+    </div>
+    <div class="text-center">
+      <span class="text-xs text-on-surface-variant">Nominal Pembayaran Tepat:</span>
+      <p class="text-2xl font-bold text-secondary font-headline-md tracking-tight" id="qris-zoom-nominal">Rp 107.000</p>
+      <p class="text-[11px] text-on-surface-variant mt-0.5">Order ID: #FJR-9842 • Verifikasi Otomatis</p>
+    </div>
+    <div class="flex gap-2 w-full mt-1">
+      <button onclick="downloadQrisImage()" class="flex-1 py-2.5 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary text-xs font-bold flex items-center justify-center gap-1.5 transition-all active:scale-95 shadow-sm" type="button">
+        <span class="material-symbols-outlined text-[16px] text-secondary">download</span> Unduh QRIS
+      </button>
+      <button onclick="sendInvoiceToCustomerWhatsApp(false)" class="flex-1 py-2.5 px-3 rounded-lg bg-[#25D366] hover:bg-[#1ebd5a] text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-md transition-all active:scale-95" type="button">
+        <span class="material-symbols-outlined text-[16px]">chat</span> Buka di WA
+      </button>
+    </div>
+  </div>
+</div>
+</main><footer id="tentang-kami" class="w-full bg-surface-container-low text-on-surface mt-space-xl"><div class="max-w-7xl mx-auto px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter"><div class="flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><img alt="Fajar Cafe Logo" data-config-img="logo" class="h-8 w-auto object-contain" src="../assets/images/fajar-cafe-logo.png"><span class="font-headline-md text-headline-md text-primary">Fajar Cafe</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Sajian kopi artisan nusantara dan bistro fusi modern dalam kehangatan santap bernuansa tropis Jakarta Selatan.</p><div class="flex items-center gap-space-sm"><span class="px-space-sm py-space-xs rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">Buka Setiap Hari</span></div></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-primary mb-space-xs">Jam Operasional</h4><div class="flex items-start gap-space-sm text-on-surface-variant"><span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">schedule</span><div><p class="font-label-md text-label-md text-on-surface font-semibold">Senin — Minggu</p><p class="font-body-sm text-body-sm">07.00 — 22.00 WIB</p><p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">Dine-in, Takeaway &amp; Delivery</p></div></div></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-primary mb-space-xs">Lokasi &amp; Kontak</h4><div class="flex items-start gap-space-sm text-on-surface-variant"><span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">location_on</span><p class="font-body-sm text-body-sm">Jl. Senopati No. 42, Kebayoran Baru, Jakarta Selatan, DKI Jakarta 12190</p></div><div class="flex items-center gap-space-sm text-on-surface-variant"><span class="material-symbols-outlined text-secondary text-[20px]">chat</span><p class="font-body-sm text-body-sm">WhatsApp: +62 823-3890-3403</p></div><div class="flex items-center gap-space-sm text-on-surface-variant"><span class="material-symbols-outlined text-secondary text-[20px]">alternate_email</span><p class="font-body-sm text-body-sm">Instagram: @fajarcafe.jkt</p></div></div><div class="flex flex-col gap-space-sm"><h4 class="font-headline-sm text-headline-sm text-primary mb-space-xs">Metode Pembayaran</h4><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-xs">Transaksi nirsentuh cepat dan aman terverifikasi.</p><div class="flex flex-wrap gap-space-xs"><span class="px-space-sm py-space-xs rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">QRIS</span><span class="px-space-sm py-space-xs rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">GoPay</span><span class="px-space-sm py-space-xs rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">OVO</span><span class="px-space-sm py-space-xs rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">BCA</span><span class="px-space-sm py-space-xs rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">Kartu Kredit</span></div></div></div><div class="mt-space-xl pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md"><p class="font-body-sm text-body-sm text-on-surface-variant">© 2025 Fajar Cafe &amp; Bistro Jakarta. Seluruh hak cipta dilindungi.</p><div class="flex items-center gap-space-lg"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Syarat &amp; Ketentuan</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Kebijakan Privasi</a></div></div></div></footer>
+<script>
+  window.toggleMobileNav = function() {
+    const menu = document.getElementById('mobile-nav-menu');
+    const backdrop = document.getElementById('mobile-nav-backdrop');
+    const icon = document.getElementById('mobile-menu-icon');
+    if (menu) {
+      const isClosed = menu.classList.contains('hidden');
+      if (isClosed) {
+        menu.classList.remove('hidden');
+        if (backdrop) backdrop.classList.remove('hidden');
+        if (icon) icon.textContent = 'close';
+      } else {
+        menu.classList.add('hidden');
+        if (backdrop) backdrop.classList.add('hidden');
+        if (icon) icon.textContent = 'menu';
+      }
+    }
+  };
+
+  window.closeMobileNav = function() {
+    const menu = document.getElementById('mobile-nav-menu');
+    const backdrop = document.getElementById('mobile-nav-backdrop');
+    const icon = document.getElementById('mobile-menu-icon');
+    if (menu) menu.classList.add('hidden');
+    if (backdrop) backdrop.classList.add('hidden');
+    if (icon) icon.textContent = 'menu';
+  };
+</script>
+</body></html>
