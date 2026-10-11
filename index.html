@@ -747,4 +747,15 @@
     if (icon) icon.textContent = 'menu';
   };
 </script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register(
+        "/Fajar-Caffee/service-worker.js"
+      ).catch((error) => {
+        console.error("Service Worker gagal:", error);
+      });
+    });
+  }
+</script>
 </body></html>
