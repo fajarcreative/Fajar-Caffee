@@ -1,1 +1,23 @@
-
+{
+  "id": "/Fajar-Caffee/",
+  "name": "Fajar Caffee",
+  "short_name": "Fajar Caffee",
+  "description": "Website resmi Fajar Caffee",
+  "start_url": "/Fajar-Caffee/",
+  "scope": "/Fajar-Caffee/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6f4e37",
+  "icons": [
+    {
+      "src": "/Fajar-Caffee/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/Fajar-Caffee/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
